@@ -115,13 +115,20 @@
                             <span class="badge-pill-custom"><i class="bi bi-droplet"></i> 1 Bathroom</span>
                             <span class="badge-pill-custom"><i class="bi bi-house-door"></i> 1 Balcony</span>
                             <span class="badge-pill-custom"><i class="bi bi-couch"></i> 1 Sofa</span>
+
                         </div>
+
                         <div class="facilities-title">Facilities</div>
                         <div class="facilities-list mb-3">
                             <span class="badge-pill-custom"><i class="bi bi-wifi"></i> Wifi</span>
                             <span class="badge-pill-custom"><i class="bi bi-tv"></i> TV</span>
                             <span class="badge-pill-custom"><i class="bi bi-snow"></i> AC</span>
                             <span class="badge-pill-custom"><i class="bi bi-fire"></i> Heater</span>
+                        </div>
+                        <div class="guests mb-4">
+                            <h6 class="mb-1">Guests</h6>
+                            <span class="badge-pill-custom"><i class="bi bi-people"></i> 2 Adults</span>
+                            <span class="badge-pill-custom"><i class="bi bi-people"></i> 1 Child</span>
                         </div>
                         <div class="rating mb-4">
                             <h6 class="mb-1">Rating</h6>
@@ -153,13 +160,19 @@
                             <span class="badge-pill-custom"><i class="bi bi-droplet"></i> 2 Bathrooms</span>
                             <span class="badge-pill-custom"><i class="bi bi-house-door"></i> 1 Balcony</span>
                             <span class="badge-pill-custom"><i class="bi bi-couch"></i> 2 Sofas</span>
+
                         </div>
-                        <div class="facilities-title">Facilities</div>
-                        <div class="facilities-list mb-3">
+                            <div class="facilities-list mb-3">
                             <span class="badge-pill-custom"><i class="bi bi-wifi"></i> Wifi</span>
                             <span class="badge-pill-custom"><i class="bi bi-tv"></i> TV</span>
                             <span class="badge-pill-custom"><i class="bi bi-snow"></i> AC</span>
                             <span class="badge-pill-custom"><i class="bi bi-cup-hot"></i> Minibar</span>
+
+                        </div>
+                        <div class="guests mb-4">
+                            <h6 class="mb-1">Guests</h6>
+                            <span class="badge-pill-custom"><i class="bi bi-people"></i> 2 Adults</span>
+                            <span class="badge-pill-custom"><i class="bi bi-people"></i> 1 Child</span>
                         </div>
                         <div class="rating mb-4">
                             <h6 class="mb-1">Rating</h6>
@@ -191,6 +204,8 @@
                             <span class="badge-pill-custom"><i class="bi bi-droplet"></i> 2 Bathrooms</span>
                             <span class="badge-pill-custom"><i class="bi bi-house-door"></i> 2 Balconies</span>
                             <span class="badge-pill-custom"><i class="bi bi-couch"></i> 3 Sofas</span>
+                            <span class="badge-pill-custom"><i class="bi bi-people"></i> 5 Adults</span>
+                            <span class="badge-pill-custom"><i class="bi bi-people"></i> 4 Children</span>
                         </div>
                         <div class="facilities-title">Facilities</div>
                         <div class="facilities-list mb-3">
@@ -198,6 +213,12 @@
                             <span class="badge-pill-custom"><i class="bi bi-tv"></i> TV</span>
                             <span class="badge-pill-custom"><i class="bi bi-snow"></i> AC</span>
                             <span class="badge-pill-custom"><i class="bi bi-fire"></i> Heater</span>
+                                                        
+                        </div>
+                        <div class="guests mb-4">
+                            <h6 class="mb-1">Guests</h6>
+                            <span class="badge-pill-custom"><i class="bi bi-people"></i> 5 Adults</span>
+                            <span class="badge-pill-custom"><i class="bi bi-people"></i> 4 Children</span>
                         </div>
                         <div class="rating mb-4">
                             <h6 class="mb-1">Rating</h6>
@@ -333,8 +354,14 @@
     <div class="row g-4">
         <div class="col-lg-8">
             <div class="bg-white p-3 rounded shadow-sm h-100">
-                <iframe class="w-100 rounded" height="450" style="border:0;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.0146951116967!2d105.77135407550617!3d21.072075286289003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134552defbed8e9%3A0x1584f79c805eb017!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBN4buPIC0gxJDhu4thIGNo4bqldA!5e0!3m2!1svi!2s!4v1776603652100!5m2!1svi!2s" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
+<iframe 
+  class="w-100 rounded mb-4" 
+  height="450" 
+  style="border:0;" 
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7509.397933131189!2d105.91248509357905!3d19.767940500000016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313650fa108cbf63%3A0xee00d9a93f1f8371!2sFLC%20Luxury%20S%E1%BA%A7m%20S%C6%A1n%20Resort!5e0!3m2!1svi!2s!4v1776775851977!5m2!1svi!2s"
+  loading="lazy" 
+  referrerpolicy="no-referrer-when-downgrade">
+</iframe>            </div>
         </div>
         <div class="col-lg-4 d-flex flex-column gap-4">
             <div class="bg-white p-4 rounded shadow-sm">
@@ -364,6 +391,7 @@
                             <i class="bi bi-twitter me-2"></i> Twitter
                         </span>
                     </a>
+                    
                 </div>
             </div>
         </div>
