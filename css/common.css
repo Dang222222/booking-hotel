@@ -125,4 +125,10 @@ input[type=number]{
   object-fit: cover;
   border-radius: 10px;
 }
+.custom-alert {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1050;
+}
 
