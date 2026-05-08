@@ -53,7 +53,7 @@
         document.getElementById('checkoutForm').addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Đặt phòng thành công! TJ Hotel sẽ liên hệ với bạn trong thời gian sớm nhất.');
-            window.location.href = 'index.html'; // Chuyển về trang chủ sau khi đặt xong
+            window.location.href = 'index.php'; // Chuyển về trang chủ sau khi đặt xong
         });
     </script>
 </body>
