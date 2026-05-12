@@ -38,7 +38,7 @@
     <div class="modal fade" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form action="">
+                <form action="admin/login.php" method="POST">
                     <div class="modal-header">
                         <h5 class="modal-title d-flex align-items-center">
                             <i class="bi bi-box-arrow-in-right fs-3 me-2"></i> Login
@@ -48,20 +48,31 @@
                     <div class="modal-body">
                         <div class="mb-3">
                             <label class="form-label">Email</label>
-                            <input type="email" class="form-control shadow-none" required>
+                            <input type="email" name="email" class="form-control shadow-none" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Password</label>
-                            <input type="password" class="form-control shadow-none" required>
+                            <input type="password" name="pass" class="form-control shadow-none" required>
                         </div>
+                        <input type="hidden" name="redirect" id="loginRedirect" value="">
                         <div class="text-center mt-3">
-                            <button type="submit" class="btn btn-dark shadow-none px-4">Login</button>
+                            <button type="submit" name="login" class="btn btn-dark shadow-none px-4">Login</button>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+    
+    <script>
+        document.getElementById('loginModal').addEventListener('show.bs.modal', function() {
+            var currentPage = window.location.pathname.split('/').pop();
+            if (currentPage === '' || currentPage === 'index.php') {
+                currentPage = 'index.php';
+            }
+            document.getElementById('loginRedirect').value = currentPage;
+        });
+    </script>
 
     <!-- Register Modal -->
     <div class="modal fade" id="registerModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">

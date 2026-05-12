@@ -36,6 +36,7 @@ CREATE TABLE IF NOT EXISTS `bookings` (
     `checkout`   DATE      NOT NULL,
     `adults`     INT(11)   NOT NULL DEFAULT 1,
     `children`   INT(11)   NOT NULL DEFAULT 0,
+    `total`      DECIMAL(10,2) NOT NULL DEFAULT 0,
     `status`     ENUM('pending','confirmed','cancelled') NOT NULL DEFAULT 'pending',
     `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`id`),
@@ -62,13 +63,6 @@ INSERT INTO `settings` (`name`, `value`) VALUES
 ('hotel_name',  'TJ Hotel'),
 ('hotel_phone', '+84 915 565 322'),
 ('hotel_email', 'contact@tjhotel.vn'),
-('hotel_address','FLC Sầm Sơn Resort, Thanh Hóa');
-
--- Thêm cột site_about vào settings nếu chưa có
-ALTER TABLE `settings` ADD COLUMN IF NOT EXISTS `site_about` TEXT AFTER `value`;
-
--- Cập nhật settings với site_title, site_about dạng column trực tiếp
--- (Nếu dùng key-value thì settings_crud cần đọc đúng key)
-INSERT IGNORE INTO `settings` (`id`, `name`, `value`) VALUES
-(1, 'site_title', 'TJ Hotel'),
-(2, 'site_about', 'Khách sạn TJ Hotel mang đến trải nghiệm lưu trú sang trọng tại Việt Nam.');
+('hotel_address','FLC Sầm Sơn Resort, Thanh Hóa'),
+('site_title', 'TJ Hotel'),
+('site_about', 'Khách sạn TJ Hotel mang đến trải nghiệm lưu trú sang trọng tại Việt Nam.');

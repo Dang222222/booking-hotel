@@ -4,7 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TJ Hotel - Phòng</title>
-  <?php require('inc/link.php'); ?>
+  <?php 
+    session_start();
+    require('inc/link.php'); 
+  ?>
   <style>
     .h-line { width: 120px; height: 3px; background: #2ec1ac; margin: auto; }
     .card { border: none; border-radius: 15px; overflow: hidden; transition: 0.3s; }
@@ -95,7 +98,7 @@
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
                   <span class="price">$150/đêm</span>
-                  <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#loginModal">Đặt ngay</button>
+                  <button class="btn btn-custom book-btn" data-room-id="1">Đặt ngay</button>
                 </div>
               </div>
             </div>
@@ -125,7 +128,7 @@
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
                   <span class="price">$250/đêm</span>
-                  <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#loginModal">Đặt ngay</button>
+                  <button class="btn btn-custom book-btn" data-room-id="2">Đặt ngay</button>
                 </div>
               </div>
             </div>
@@ -155,7 +158,7 @@
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
                   <span class="price">$350/đêm</span>
-                  <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#loginModal">Đặt ngay</button>
+                  <button class="btn btn-custom book-btn" data-room-id="3">Đặt ngay</button>
                 </div>
               </div>
             </div>
@@ -184,7 +187,7 @@
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
                   <span class="price">$80/đêm</span>
-                  <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#loginModal">Đặt ngay</button>
+                  <button class="btn btn-custom book-btn" data-room-id="4">Đặt ngay</button>
                 </div>
               </div>
             </div>
@@ -196,6 +199,36 @@
   </div>
 
   <?php require('inc/footer.php'); ?>
+
+  <script>
+    document.querySelectorAll('.book-btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const roomId = this.getAttribute('data-room-id');
+        const checkin = document.querySelector('input[name="checkin"]').value || '';
+        const checkout = document.querySelector('input[name="checkout"]').value || '';
+        const adults = document.querySelector('input[name="adults"]').value || 1;
+        const children = document.querySelector('input[name="children"]').value || 0;
+
+        const params = new URLSearchParams({
+          room_id: roomId,
+          checkin: checkin,
+          checkout: checkout,
+          adults: adults,
+          children: children
+        }).toString();
+
+        // Kiểm tra nếu đã login
+        <?php if (isset($_SESSION['adminLogin']) && $_SESSION['adminLogin'] === true) { ?>
+          // Đã login - trực tiếp đến checkout
+          window.location.href = 'admin/checkout.php?' + params;
+        <?php } else { ?>
+          // Chưa login - chuyển đến login với redirect
+          window.location.href = 'admin/login.php?redirect=checkout&' + params;
+        <?php } ?>
+      });
+    });
+  </script>
 
 </body>
 </html>

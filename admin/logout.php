@@ -9,6 +9,6 @@ session_unset();
 session_destroy();
 
 // Chuyển hướng người dùng về lại trang chủ (hoặc trang đăng nhập)
-header("Location: index.php");
+header("Location: ../index.php");
 exit();
 ?>
