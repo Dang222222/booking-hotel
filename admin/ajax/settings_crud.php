@@ -1,56 +1,26 @@
 <?php
-
 require('../inc/db_config.php');
-
 session_start();
 
-
-// ==========================
-// CHẶN TRUY CẬP TRÁI PHÉP
-// ==========================
-if(!isset($_SESSION['adminLogin'])){
+if (!isset($_SESSION['adminLogin'])) {
     exit('Unauthorized Access');
 }
 
-
-// ==========================
-// LẤY DỮ LIỆU SETTINGS
-// ==========================
-if(isset($_POST['get_general']))
-{
-    $q = "SELECT * FROM `settings` WHERE `sr_no`=?";
-
-    $values = [1];
-
-    $res = select($q, $values, "i");
-
-    $data = mysqli_fetch_assoc($res);
-
-    echo json_encode($data);
+if (isset($_POST['get_general'])) {
+    $res = select("SELECT `name`, `value` FROM `settings`", [], "");
+    $data = [];
+    while ($row = mysqli_fetch_assoc($res)) {
+        $data[$row['name']] = $row['value'];
+    }
+    echo json_encode([
+        'site_title' => $data['site_title'] ?? '',
+        'site_about' => $data['site_about'] ?? ''
+    ]);
 }
 
-
-// ==========================
-// UPDATE SETTINGS
-// ==========================
-if(isset($_POST['upd_general']))
-{
-    $frm_data = filteration($_POST);
-
-    $q = "UPDATE `settings`
-          SET `site_title`=?,
-              `site_about`=?
-          WHERE `sr_no`=?";
-
-    $values = [
-        $frm_data['site_title'],
-        $frm_data['site_about'],
-        1
-    ];
-
-    $res = update($q, $values, "ssi");
-
-    echo $res;
+if (isset($_POST['upd_general'])) {
+    $f   = filteration($_POST);
+    $r1  = update("UPDATE `settings` SET `value`=? WHERE `name`='site_title'", [$f['site_title']], "s");
+    $r2  = update("UPDATE `settings` SET `value`=? WHERE `name`='site_about'", [$f['site_about']], "s");
+    echo ($r1 + $r2 > 0) ? 1 : 0;
 }
-
-?>

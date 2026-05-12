@@ -1,9 +1,14 @@
+<?php
+session_start();
+require('inc/db_config.php');
+if (!isset($_SESSION['adminLogin'])) { header('Location: index.php'); exit(); }
+?>
     <!DOCTYPE html>
-    <html lang="en">
+    <html lang="vi">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Admin Panel - Settings</title>
+        <title>Settings - TJ Hotel Admin</title>
         <?php require('inc/link.php'); ?>
         <style>
             .settings-section { margin-bottom: 28px; }
@@ -213,28 +218,28 @@
                         </div>
                     </div>
 
-                    <!-- Danger Zone -->
+                    <!-- Site Settings AJAX -->
 <div class="settings-section">
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
             <h6>Site Settings</h6>
-            <span class="badge bg-info text-dark" style="font-size: 10px;">AJAX Enabled</span>
+            <span class="badge bg-success text-white" style="font-size: 10px;">AJAX</span>
         </div>
         <div class="card-body">
             <form id="site_settings_form">
                 <div class="row g-3">
                     <div class="col-12">
-                        <label class="form-label">Hotel Name</label>
+                        <label class="form-label">Tên khách sạn</label>
                         <input type="text" name="site_title" id="site_title_inp" class="form-control shadow-none" required>
                     </div>
                     <div class="col-12">
-                        <label class="form-label">About Us (Hotel Description)</label>
+                        <label class="form-label">Giới thiệu</label>
                         <textarea name="site_about" id="site_about_inp" class="form-control shadow-none" rows="3" required></textarea>
                     </div>
                 </div>
                 <div class="divider"></div>
                 <div class="d-flex justify-content-end">
-                    <button type="submit" class="btn btn-dark shadow-none">Save Changes</button>
+                    <button type="submit" class="btn btn-dark shadow-none">Lưu thay đổi</button>
                 </div>
             </form>
         </div>

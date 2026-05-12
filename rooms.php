@@ -3,252 +3,199 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TJ Hotel - Rooms</title>
-
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-
+  <title>TJ Hotel - Phòng</title>
+  <?php require('inc/link.php'); ?>
   <style>
-    body {
-      background: #f8f9fa;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    .h-font {
-      font-family: 'Merienda', cursive;
-    }
-
-    .h-line {
-      width: 120px;
-      height: 3px;
-      background: #0d6efd;
-      margin: auto;
-    }
-
-    .card {
-      border: none;
-      border-radius: 15px;
-      overflow: hidden;
-      transition: 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    }
-
-    .btn-custom {
-      background:#0d6efd;
-      border:none;
-      border-radius:8px;
-      padding:8px 16px;
-      color:#fff;
-    }
-
-    .btn-custom:hover {
-      background:#0b5ed7;
-    }
-
-    .filter-box {
-      position: sticky;
-      top: 20px;
-    }
-
-    .price {
-      font-size: 18px;
-      font-weight: 600;
-      color: #0d6efd;
-    }
-
-    .badge-custom {
-      background: #198754;
-    }
-
-    @media (max-width: 991px) {
-      .filter-box {
-        position: static;
-      }
-    }
+    .h-line { width: 120px; height: 3px; background: #2ec1ac; margin: auto; }
+    .card { border: none; border-radius: 15px; overflow: hidden; transition: 0.3s; }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+    .btn-custom { background: #2ec1ac; border: none; border-radius: 8px; padding: 8px 16px; color: #fff; }
+    .btn-custom:hover { background: #279e8c; color: #fff; }
+    .filter-box { position: sticky; top: 80px; }
+    .price { font-size: 18px; font-weight: 600; color: #2ec1ac; }
+    .badge-available { background: #2ec1ac; }
+    @media (max-width: 991px) { .filter-box { position: static; } }
   </style>
 </head>
-<body>
+<body class="bg-light">
 
-<!-- TITLE -->
-<div class="my-5 px-4 text-center">
-  <h2 class="mt-5 mb-3 fw-bold h-font">Our Rooms</h2>
-  <div class="h-line"></div>
-</div>
+  <?php require('inc/header.php'); ?>
 
-<!-- CONTENT -->
-<div class="container">
-  <div class="row">
-
-    <!-- FILTER -->
-    <div class="col-lg-3 mb-4">
-      <div class="bg-white p-3 rounded shadow filter-box">
-
-        <h5 class="mb-3">Filters</h5>
-
-        <!-- DATE -->
-        <div class="mb-4">
-          <label>Check-in</label>
-          <input type="date" class="form-control mb-2">
-          <label>Check-out</label>
-          <input type="date" class="form-control">
-        </div>
-
-        <!-- FACILITY -->
-        <div class="mb-4">
-          <h6>Facilities</h6>
-
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox">
-            <label class="form-check-label">Wifi</label>
-          </div>
-
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox">
-            <label class="form-check-label">Pool</label>
-          </div>
-
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox">
-            <label class="form-check-label">Gym</label>
-          </div>
-        </div>
-
-        <!-- GUEST -->
-        <div>
-          <h6>Guests</h6>
-          <div class="d-flex gap-2">
-            <input type="number" class="form-control" placeholder="Adults" min="1">
-            <input type="number" class="form-control" placeholder="Children" min="0">
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- ROOM LIST -->
-    <div class="col-lg-9">
-
-      <!-- ROOM 1 -->
-      <div class="card mb-4">
-        <div class="row g-0">
-
-          <div class="col-md-4">
-            <img src="https://via.placeholder.com/400x250" class="img-fluid w-100 h-100" style="object-fit: cover;">
-          </div>
-
-          <div class="col-md-8">
-            <div class="card-body">
-
-              <div class="d-flex justify-content-between">
-                <h5>Deluxe Room</h5>
-                <span class="badge badge-custom">Popular</span>
-              </div>
-
-              <p class="text-muted">
-                Spacious room with city view, free wifi, air conditioning.
-              </p>
-
-              <!-- ICON -->
-              <div class="mb-2">
-                <i class="bi bi-wifi me-2"></i>
-                <i class="bi bi-tv me-2"></i>
-                <i class="bi bi-snow me-2"></i>
-              </div>
-
-              <div class="d-flex justify-content-between align-items-center">
-                <span class="price">$120/night</span>
-                <button class="btn btn-custom">Book Now</button>
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- ROOM 2 -->
-      <div class="card mb-4">
-        <div class="row g-0">
-
-          <div class="col-md-4">
-            <img src="https://via.placeholder.com/400x250" class="img-fluid w-100 h-100" style="object-fit: cover;">
-          </div>
-
-          <div class="col-md-8">
-            <div class="card-body">
-
-              <h5>Standard Room</h5>
-
-              <p class="text-muted">
-                Comfortable and affordable room for short stays.
-              </p>
-
-              <div class="mb-2">
-                <i class="bi bi-wifi me-2"></i>
-                <i class="bi bi-tv me-2"></i>
-              </div>
-
-              <div class="d-flex justify-content-between align-items-center">
-                <span class="price">$80/night</span>
-                <button class="btn btn-custom">Book Now</button>
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- ROOM 3 -->
-      <div class="card mb-4">
-        <div class="row g-0">
-
-          <div class="col-md-4">
-            <img src="https://via.placeholder.com/400x250" class="img-fluid w-100 h-100" style="object-fit: cover;">
-          </div>
-
-          <div class="col-md-8">
-            <div class="card-body">
-
-              <h5>Suite Room</h5>
-
-              <p class="text-muted">
-                Luxury suite with living room, premium service.
-              </p>
-
-              <div class="mb-2">
-                <i class="bi bi-wifi me-2"></i>
-                <i class="bi bi-tv me-2"></i>
-                <i class="bi bi-cup-straw me-2"></i>
-              </div>
-
-              <div class="d-flex justify-content-between align-items-center">
-                <span class="price">$200/night</span>
-                <button class="btn btn-custom">Book Now</button>
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-
+  <div class="my-5 px-4 text-center">
+    <h2 class="mt-5 mb-3 fw-bold h-font">Danh sách phòng</h2>
+    <div class="h-line"></div>
   </div>
-</div>
 
-<!-- FOOTER -->
-<footer class="text-center mt-5 p-4 bg-dark text-white">
-  <p class="mb-0">© 2026 TJ Hotel. All rights reserved.</p>
-</footer>
+  <div class="container mb-5">
+    <div class="row">
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+      <!-- FILTER -->
+      <div class="col-lg-3 mb-4">
+        <div class="bg-white p-3 rounded shadow filter-box">
+          <h5 class="mb-3">Bộ lọc</h5>
+
+          <div class="mb-4">
+            <label class="form-label fw-semibold">Check-in</label>
+            <input type="date" name="checkin" class="form-control mb-2 shadow-none">
+            <label class="form-label fw-semibold">Check-out</label>
+            <input type="date" name="checkout" class="form-control shadow-none">
+          </div>
+
+          <div class="mb-4">
+            <h6 class="fw-semibold">Tiện ích</h6>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="facility[]" value="wifi" id="fWifi">
+              <label class="form-check-label" for="fWifi">Wifi</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="facility[]" value="pool" id="fPool">
+              <label class="form-check-label" for="fPool">Hồ bơi</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="facility[]" value="gym" id="fGym">
+              <label class="form-check-label" for="fGym">Phòng gym</label>
+            </div>
+          </div>
+
+          <div>
+            <h6 class="fw-semibold">Số khách</h6>
+            <div class="d-flex gap-2">
+              <input type="number" name="adults" class="form-control shadow-none" placeholder="Người lớn" min="1">
+              <input type="number" name="children" class="form-control shadow-none" placeholder="Trẻ em" min="0">
+            </div>
+          </div>
+
+          <button class="btn btn-custom w-100 mt-3">Lọc</button>
+        </div>
+      </div>
+
+      <!-- ROOM LIST -->
+      <div class="col-lg-9">
+
+        <div class="card mb-4 shadow-sm">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="images/rooms/1.jpg" class="img-fluid w-100 h-100" style="object-fit:cover; border-radius:15px 0 0 15px;" alt="Deluxe Room">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body p-4">
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                  <h5 class="mb-0">Deluxe Room</h5>
+                  <span class="badge badge-available text-white">Còn phòng</span>
+                </div>
+                <p class="text-muted small">Phòng rộng rãi với view thành phố, wifi miễn phí, điều hòa nhiệt độ.</p>
+                <div class="mb-3">
+                  <span class="me-2 small"><i class="bi bi-people me-1"></i>2 Người lớn, 1 Trẻ em</span>
+                  <span class="small"><i class="bi bi-door-open me-1"></i>1 Phòng ngủ</span>
+                </div>
+                <div class="mb-3">
+                  <i class="bi bi-wifi me-2 text-muted"></i>
+                  <i class="bi bi-tv me-2 text-muted"></i>
+                  <i class="bi bi-snow me-2 text-muted"></i>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="price">$150/đêm</span>
+                  <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#loginModal">Đặt ngay</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mb-4 shadow-sm">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="images/rooms/2.jpg" class="img-fluid w-100 h-100" style="object-fit:cover; border-radius:15px 0 0 15px;" alt="Suite Room">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body p-4">
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                  <h5 class="mb-0">Suite Room</h5>
+                  <span class="badge badge-available text-white">Còn phòng</span>
+                </div>
+                <p class="text-muted small">Phòng suite sang trọng với phòng khách riêng và dịch vụ cao cấp.</p>
+                <div class="mb-3">
+                  <span class="me-2 small"><i class="bi bi-people me-1"></i>2 Người lớn, 1 Trẻ em</span>
+                  <span class="small"><i class="bi bi-door-open me-1"></i>2 Phòng ngủ</span>
+                </div>
+                <div class="mb-3">
+                  <i class="bi bi-wifi me-2 text-muted"></i>
+                  <i class="bi bi-tv me-2 text-muted"></i>
+                  <i class="bi bi-cup-hot me-2 text-muted"></i>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="price">$250/đêm</span>
+                  <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#loginModal">Đặt ngay</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mb-4 shadow-sm">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="images/rooms/3.jpg" class="img-fluid w-100 h-100" style="object-fit:cover; border-radius:15px 0 0 15px;" alt="Family Room">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body p-4">
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                  <h5 class="mb-0">Family Room</h5>
+                  <span class="badge badge-available text-white">Còn phòng</span>
+                </div>
+                <p class="text-muted small">Phòng gia đình rộng lớn, phù hợp cho cả gia đình có trẻ nhỏ.</p>
+                <div class="mb-3">
+                  <span class="me-2 small"><i class="bi bi-people me-1"></i>5 Người lớn, 4 Trẻ em</span>
+                  <span class="small"><i class="bi bi-door-open me-1"></i>3 Phòng ngủ</span>
+                </div>
+                <div class="mb-3">
+                  <i class="bi bi-wifi me-2 text-muted"></i>
+                  <i class="bi bi-tv me-2 text-muted"></i>
+                  <i class="bi bi-snow me-2 text-muted"></i>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="price">$350/đêm</span>
+                  <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#loginModal">Đặt ngay</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mb-4 shadow-sm">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="images/rooms/4.jpg" class="img-fluid w-100 h-100" style="object-fit:cover; border-radius:15px 0 0 15px;" alt="Standard Room">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body p-4">
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                  <h5 class="mb-0">Standard Room</h5>
+                  <span class="badge badge-available text-white">Còn phòng</span>
+                </div>
+                <p class="text-muted small">Phòng tiêu chuẩn thoải mái, phù hợp cho lưu trú ngắn ngày.</p>
+                <div class="mb-3">
+                  <span class="me-2 small"><i class="bi bi-people me-1"></i>2 Người lớn</span>
+                  <span class="small"><i class="bi bi-door-open me-1"></i>1 Phòng ngủ</span>
+                </div>
+                <div class="mb-3">
+                  <i class="bi bi-wifi me-2 text-muted"></i>
+                  <i class="bi bi-tv me-2 text-muted"></i>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="price">$80/đêm</span>
+                  <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#loginModal">Đặt ngay</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <?php require('inc/footer.php'); ?>
 
 </body>
 </html>
